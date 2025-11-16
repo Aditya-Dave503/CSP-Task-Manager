@@ -1,18 +1,11 @@
-# Compiler and flags
 CC = gcc
 CFLAGS = -Wall -Wextra -g -I./include
-LDFLAGS = -lpthread -lrt
-
-# Source files (Only the working ones for now)
-SRC_DIR = src
-SRC = $(SRC_DIR)/main.c $(SRC_DIR)/process_list.c $(SRC_DIR)/ui_controller.c \
-      $(SRC_DIR)/utils.c $(SRC_DIR)/system_stats.c
+LDFLAGS = 
+SRC = src/main.c src/process_list.c src/ui_controller.c src/system_stats.c src/utils.c
 OBJ = $(SRC:.c=.o)
-
-# Target executable
 TARGET = task_manager
 
-.PHONY: all clean
+.PHONY: all clean run
 
 all: $(TARGET)
 
@@ -27,6 +20,3 @@ clean:
 
 run: $(TARGET)
 	./$(TARGET)
-
-debug: $(TARGET)
-	gdb ./$(TARGET)
